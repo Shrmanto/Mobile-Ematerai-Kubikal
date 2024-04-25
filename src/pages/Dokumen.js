@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { Feather } from '@expo/vector-icons';
 
 export default function Dokumen() {
   return (
-    <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-      <Text>Dokumen Kosong</Text>
-    </View>
+    <View></View>
   )
 }
