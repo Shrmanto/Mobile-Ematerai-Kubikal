@@ -6,7 +6,7 @@ import { MaterialCommunityIcons, MaterialIcons, AntDesign } from '@expo/vector-i
 export default function Home() {
   return (
     <ScrollView>
-      <View style={{marginTop:35, height:1000}}>
+      <View style={{marginTop:30, height:1000}}>
           <LinearGradient style={{width:"auto", height:185, backgroundColor:"#7C7CFC", justifyContent:"center"}} colors={['#7C7CFC', '#4A4A96']}>
             <View style={{marginHorizontal:16, flexDirection:"row"}}>
               <View style={{width:42, height:42, backgroundColor:"#ffff", borderRadius:100, marginRight:22, justifyContent:"center", alignItems:"center"}}>
@@ -48,36 +48,36 @@ export default function Home() {
           </View>
           <View style={{marginVertical:25, marginHorizontal:16}}>
             <Text style={{fontSize:16, fontWeight:800, marginBottom:10}}>Quick Action</Text>
-            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"#000000", borderBottomWidth:1, marginBottom:10}}>
+            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1, marginBottom:10}}>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                 <View style={{marginRight:10}}>
-                  <MaterialCommunityIcons name="postage-stamp" size={24} color="black" />
+                  <MaterialCommunityIcons name="postage-stamp" size={24} color="rgba(0, 0, 0, 0.6)" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800}}>Bubuhkan e-Materai</Text>
                 <View style={{marginLeft:"auto"}}>
-                  <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
+                  <MaterialIcons name="arrow-forward-ios" size={24} color="rgba(0, 0, 0, 0.4)" />
                 </View>
               </View>
             </View>
-            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"#000000", borderBottomWidth:1, marginBottom:10}}>
+            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1, marginBottom:10}}>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                 <View style={{marginRight:10}}>
-                  <MaterialCommunityIcons name="message-question" size={24} color="black" />
+                  <MaterialCommunityIcons name="message-question" size={24} color="rgba(0, 0, 0, 0.6)" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800}}>Frequently Asked Question</Text>
                 <View style={{marginLeft:"auto"}}>
-                  <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
+                  <MaterialIcons name="arrow-forward-ios" size={24} color="rgba(0, 0, 0, 0.4)" />
                 </View>
               </View>
             </View>
-            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"#000000", borderBottomWidth:1}}>
+            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1}}>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                 <View style={{marginRight:10}}>
-                  <AntDesign name="customerservice" size={24} color="black" />
+                  <AntDesign name="customerservice" size={24} color="rgba(0, 0, 0, 0.6)" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800}}>Hubungi Customer Service</Text>
                 <View style={{marginLeft:"auto"}}>
-                  <MaterialIcons name="arrow-forward-ios" size={24} color="black" />
+                  <MaterialIcons name="arrow-forward-ios" size={24} color="rgba(0, 0, 0, 0.4)" />
                 </View>
               </View>
             </View>

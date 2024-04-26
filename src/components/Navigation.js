@@ -27,12 +27,12 @@ const screenOptions = {
 
 const TopTabs = createMaterialTopTabNavigator();
 
-function TopTabsGroup() {
+function TopTabsDokumen() {
     return (
     <View style={{flex:1, marginTop:30}}>
         {/* Header Dokumen */}
         <View style={{backgroundColor:'#fff', height:50}}>
-          <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:15}}>
+          <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
             <Text></Text>
             <Text style={{fontSize:16, fontWeight:'bold'}}>Dokumen</Text>
             <Feather name="search" size={24} color="black" />
@@ -49,6 +49,43 @@ function TopTabsGroup() {
             <TopTabs.Screen name='dibatalkan' component={Dibatalkan}/>
             <TopTabs.Screen name='draft' component={Draft} />
         </TopTabs.Navigator>
+    </View>
+    )
+}
+
+function TopTabsKontak() {
+    return (
+    <View style={{flex:1, marginTop:30}}>
+        {/* Header Dokumen */}
+        <View style={{backgroundColor:'#fff', height:50}}>
+          <View style={{alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
+            <Text style={{fontSize:16, fontWeight:'bold'}}>Kontak</Text>
+            <View style={{flexDirection:"row", marginLeft:"auto"}}>
+              <Feather name="search" size={24} color="black" style={{marginHorizontal:20}}/>
+              <AntDesign name="plus" size={24} color="black" />
+            </View>
+          </View>
+        </View>
+        <Tab.Navigator screenOptions={screenOptions}>
+            <Tab.Screen name='kontak' component={Kontak} />
+        </Tab.Navigator>
+    </View>
+    )
+}
+
+function TopTabsNotifikasi() {
+    return (
+    <View style={{flex:1, marginTop:30}}>
+        {/* Header Dokumen */}
+        <View style={{backgroundColor:'#fff', height:50}}>
+          <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
+            <Text style={{fontSize:16, fontWeight:'bold'}}>Notifikasi</Text>
+            <Feather name="search" size={24} color="black" />
+          </View>
+        </View>
+        <Tab.Navigator screenOptions={screenOptions}>
+            <Tab.Screen name='Notifikasi' component={Notification} />
+        </Tab.Navigator>
     </View>
     )
 }
@@ -72,7 +109,7 @@ function TabGroup() {
         />
         <Tab.Screen 
         name="Dokumen" 
-        component={TopTabsGroup} 
+        component={TopTabsDokumen} 
         options={{
           tabBarIcon: ({focused})=>{
             return(
@@ -110,7 +147,7 @@ function TabGroup() {
         />
         <Tab.Screen 
         name="Kontak" 
-        component={Kontak} 
+        component={TopTabsKontak} 
         options={{
           tabBarIcon: ({focused})=>{
             return(
@@ -124,7 +161,7 @@ function TabGroup() {
         />
         <Tab.Screen 
         name="Notification" 
-        component={Notification} 
+        component={TopTabsNotifikasi} 
         options={{
           tabBarIcon: ({focused})=>{
             return(

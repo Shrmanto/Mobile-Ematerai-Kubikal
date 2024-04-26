@@ -4,7 +4,7 @@ import React from 'react'
 export default function Notification() {
   return (
     <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-      <Text>Notification Kosong</Text>
+      <Text style={{fontSize:16, marginTop:10}}>Tidak ada Notifikasi</Text>
     </View>
   )
 }
