@@ -5,8 +5,6 @@ const logoImg = require("../assets/Logo.png")
 const materaiImg = require("../assets/e-Materai.png")
 
 export default function Login({ navigation }) {
-
-
   return (
     <View style={{flex:1, marginTop:30}}>
         <View style={{paddingHorizontal:16, marginTop:85, alignItems:"center"}}>
