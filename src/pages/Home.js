@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
-import { MaterialCommunityIcons, MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather } from '@expo/vector-icons';
 
 export default function Home() {
   return (
@@ -46,8 +46,37 @@ export default function Home() {
               </View>
             </LinearGradient>
           </View>
-          <View style={{marginVertical:25, marginHorizontal:16}}>
+          <View style={{marginHorizontal:16, marginTop:25}}>
+            <View style={{flexDirection:"row"}}>
+              <LinearGradient style={{width:171, height:90, backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:20, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                  <Feather name="send" size={24} color="#fff" />
+                  <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:15, paddingLeft:5}}>0</Text>
+                </View>
+                <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:10}}>Dalam Proses</Text>
+              </LinearGradient>
+              <LinearGradient style={{width:171, height:90, backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:20, marginLeft:18, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
+                <View style={{flexDirection:"row", alignItems:"center"}}>
+                  <MaterialCommunityIcons name="file-document-outline" size={24} color="#fff" />
+                  <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:15, paddingLeft:5}}>0</Text>
+                </View>
+                <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:10}}>Dokumen Sukses</Text>
+              </LinearGradient>
+            </View>
+          </View>
+          <View style={{marginBottom:25, marginTop:50, marginHorizontal:16}}>
             <Text style={{fontSize:16, fontWeight:800, marginBottom:10}}>Quick Action</Text>
+            <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1, marginBottom:10}}>
+              <View style={{flexDirection:"row", alignItems:"center"}}>
+                <View style={{marginRight:10}}>
+                  <MaterialCommunityIcons name="folder-upload" size={24} color="rgba(0, 0, 0, 0.6)" />
+                </View>
+                <Text style={{fontSize:14, fontWeight:800}}>Unggah & Tanda Tangan Dokumen</Text>
+                <View style={{marginLeft:"auto"}}>
+                  <MaterialIcons name="arrow-forward-ios" size={24} color="rgba(0, 0, 0, 0.4)" />
+                </View>
+              </View>
+            </View>
             <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1, marginBottom:10}}>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                 <View style={{marginRight:10}}>

@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
 import Navigation from './components/Navigation';
-import Login from "./pages/Auth/Login";
-import Register from "./pages/Auth/Register";
-import Landing from "./pages/Landing"
+import { NavigationContainer } from '@react-navigation/native';
+import Router from './router/Router';
 
 export default function App() {
   return (
-    // <Navigation />
-    // <Login />
-    // <Register />
-    <Landing />
+    <NavigationContainer>
+      <Router />
+    </NavigationContainer>
   );
 }
 

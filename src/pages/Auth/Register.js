@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Checkbox from 'expo-checkbox';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Login() {
-    const [isCheckedPeruri, setCheckedPeruri] = useState(false);
-    const [isCheckedMomofin, setCheckedMomofin] = useState(false);
+    const [isChecked, setChecked] = useState(false);
 
   return (
     <View style={{flex:1, marginTop:30}}>
         <View style={{paddingHorizontal:16}}>
-          <View style={{height:50, justifyContent:"center"}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Landing')} style={{height:50, justifyContent:"center"}}>
             <AntDesign name="arrowleft" size={24} color="black" />
-          </View>
+          </TouchableOpacity>
           <View style={{marginTop:30, alignItems:"center"}}>
             <Text style={{marginBottom:12, fontSize:14, fontWeight:700}}>Pendaftaran Akun</Text>
             <Text style={{textAlign:"center", fontSize:12, color:"#4E4B66"}}>Silahkan masukkan data anda sesuai dengan detail dibawah ini untuk melanjutkan</Text>
@@ -37,12 +36,12 @@ export default function Login() {
             </View>
             <View style={{marginBottom:25}}>
                 <View style={{flexDirection:"row", alignItems:"center", marginBottom:16}}>
-                    <Checkbox style={{marginRight:10}} value={isCheckedMomofin} onValueChange={setCheckedMomofin} color={isCheckedMomofin ? '#4630EB' : undefined}></Checkbox>
+                    <Checkbox style={{marginRight:10}} value={isChecked} onValueChange={setChecked} color={isChecked ? '#4630EB' : undefined}></Checkbox>
                     <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari MOMOFIN</Text>
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
-                    <Checkbox style={{marginRight:10}} value={isCheckedPeruri} onValueChange={setCheckedPeruri} color={isCheckedPeruri ? '#4630EB' : undefined}></Checkbox>
-                    <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari PERURI</Text>
+                    <Checkbox style={{marginRight:10}} value={isChecked} onValueChange={setChecked} color={isChecked ? '#4630EB' : undefined}></Checkbox>
+                    <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari MOMOFIN</Text>
                 </View>
             </View>
             <View style={{width:360, height:40, marginBottom:12, backgroundColor:"#7C7CFC", alignItems:"center", justifyContent:"center", borderRadius:20}}>
