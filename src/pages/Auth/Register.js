@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Checkbox from 'expo-checkbox';
 import { AntDesign } from '@expo/vector-icons';
+import Button from '../../components/Button';
 
-export default function Login() {
-    const [isChecked, setChecked] = useState(false);
+export default function Register( {navigation} ) {
+    const [isCheckedMomofin, setCheckedMomofin] = useState(false);
+    const [isCheckedPeruri, setCheckedPeruri] = useState(false);
 
   return (
     <View style={{flex:1, marginTop:30}}>
@@ -16,7 +18,7 @@ export default function Login() {
             <Text style={{marginBottom:12, fontSize:14, fontWeight:700}}>Pendaftaran Akun</Text>
             <Text style={{textAlign:"center", fontSize:12, color:"#4E4B66"}}>Silahkan masukkan data anda sesuai dengan detail dibawah ini untuk melanjutkan</Text>
           </View>
-          <View style={{marginVertical:25}}>
+          <View style={{marginVertical:25, alignItems:'center'}}>
             <View style={{marginBottom:10}}>
                 <Text style={{marginBottom:5, fontSize:12}}>Email</Text>
                 <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
@@ -34,18 +36,21 @@ export default function Login() {
                 <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
             </View>
             </View>
-            <View style={{marginBottom:25}}>
+            <View style={{marginBottom:25, paddingHorizontal:16}}>
                 <View style={{flexDirection:"row", alignItems:"center", marginBottom:16}}>
-                    <Checkbox style={{marginRight:10}} value={isChecked} onValueChange={setChecked} color={isChecked ? '#4630EB' : undefined}></Checkbox>
+                    <Checkbox style={{marginRight:10}} value={isCheckedMomofin} onValueChange={setCheckedMomofin} color={isCheckedMomofin ? '#4630EB' : undefined}></Checkbox>
                     <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari MOMOFIN</Text>
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
-                    <Checkbox style={{marginRight:10}} value={isChecked} onValueChange={setChecked} color={isChecked ? '#4630EB' : undefined}></Checkbox>
-                    <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari MOMOFIN</Text>
+                    <Checkbox style={{marginRight:10}} value={isCheckedPeruri} onValueChange={setCheckedPeruri} color={isCheckedPeruri ? '#4630EB' : undefined}></Checkbox>
+                    <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari PERURI</Text>
                 </View>
             </View>
-            <View style={{width:360, height:40, marginBottom:12, backgroundColor:"#7C7CFC", alignItems:"center", justifyContent:"center", borderRadius:20}}>
-                <Text style={{fontSize:12, fontWeight:700, color:"#ffff"}}>Daftar</Text>
+            <View style={{alignItems:'center', marginBottom:12}}>
+                <Button 
+                title="Daftar"
+                onPress={()=>{navigation.navigate('Otentikasi')}}
+                />
             </View>
             <View style={{alignItems:"center"}}>
                 <Text style={{fontSize:12, color:"rgba(78, 75, 102, 0.4)"}}>Sudah Punya Akun?<Text style={{fontWeight:700, color:"#7C7CFC"}}>Masuk</Text></Text>
