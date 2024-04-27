@@ -1,8 +1,8 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
-const logoImg = require("../../assets/Icons/empty-folder.png")
+const logoImg = require("../../../assets/Icons/empty-folder.png")
 
-export default function Dibatalkan() {
+export default function Berjalan() {
   return (
     <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
         <Image source={logoImg} style={{width:100, height:100}} />

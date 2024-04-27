@@ -17,7 +17,7 @@ export default function Login( {navigation} ) {
                     <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
                 </View>
             </View>
-            <TouchableOpacity style={{marginLeft:"auto", marginBottom:30}}>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{marginLeft:"auto", marginBottom:30}}>
                 <Text style={{fontSize:12, fontWeight:700, color:"#7C7CFC"}}>Lupa Kata Sandi?</Text>
             </TouchableOpacity>
             <View style={{alignItems:"center"}}>
