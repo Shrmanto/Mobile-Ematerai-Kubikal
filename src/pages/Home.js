@@ -1,12 +1,15 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, Image } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather } from '@expo/vector-icons';
 
+const iconKendala = require("../assets/Icons/Kendala.png")
+const iconPanduan = require("../assets/Icons/Panduan.png")
+
 export default function Home() {
   return (
     <ScrollView>
-      <View style={{marginTop:30, height:1000}}>
+      <View style={{marginTop:30, height:1500}}>
           <LinearGradient style={{width:"auto", height:185, backgroundColor:"#7C7CFC", justifyContent:"center"}} colors={['#7C7CFC', '#4A4A96']}>
             <View style={{marginHorizontal:16, flexDirection:"row"}}>
               <View style={{width:42, height:42, backgroundColor:"#ffff", borderRadius:100, marginRight:22, justifyContent:"center", alignItems:"center"}}>
@@ -121,6 +124,25 @@ export default function Home() {
                 <Text style={{fontSize:12, color:"#fff"}}>Belum ada Dokumen</Text>
               </View>
             </LinearGradient>
+          </View>
+          <View style={{marginHorizontal:16}}>
+            <Text style={{fontSize:16, fontWeight:800, marginVertical:18, marginTop:25}}>Pelajari Kubikal Lebih Lanjut</Text>
+            <View>
+              <View style={{width:360, height:95, alignItems:"center", backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:24, paddingVertical:16, flexDirection:"row" }}>
+                <Image source={iconPanduan} width={55} height={55} style={{marginRight:20}}/>
+                <View style={{flexDirection:"column", width:250}}>
+                  <Text style={{fontSize:16, fontWeight:800, color:"#fff", marginBottom:5}}>Panduan Awal</Text>
+                  <Text style={{fontSize:12, fontWeight:700, color:"#fff"}}>Pelajari cara pembubuhan meterai & tanda tangan dengan Kubikal</Text>
+                </View>
+              </View>
+              <View style={{width:360, height:95, alignItems:"center", backgroundColor:"#1CC8EE", borderRadius:15, marginTop:25, paddingHorizontal:24, paddingVertical:16, flexDirection:"row" }}>
+                <Image source={iconKendala} width={55} height={55} style={{marginRight:20}}/>
+                <View style={{flexDirection:"column", width:250}}>
+                  <Text style={{fontSize:16, fontWeight:800, color:"#fff", marginBottom:5}}>Anda memiliki kendala?</Text>
+                  <Text style={{fontSize:12, fontWeight:700, color:"#fff"}}>Hubungi Kami</Text>
+                </View>
+              </View>
+            </View>
           </View>
       </View>
     </ScrollView>
