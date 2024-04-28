@@ -1,8 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const logoImg = require("../assets/Logo.png")
-const materaiImg = require("../assets/e-Materai.png")
+const logoImg = require("../../assets/Logo.png")
+const materaiImg = require("../../assets/e-Materai.png")
 
 export default function Login({ navigation }) {
   return (

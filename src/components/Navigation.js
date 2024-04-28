@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import { Home, Dokumen, Kontak, Notification } from '../pages';
+import { Home, Dokumen, Kontak, Notification } from '../pages/Home';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Nav Dokumen"
+import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Home/Nav Dokumen"
 import { Feather } from '@expo/vector-icons';
 
 
