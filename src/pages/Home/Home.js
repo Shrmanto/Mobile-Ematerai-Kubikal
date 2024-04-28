@@ -1,12 +1,12 @@
-import { View, Text, ScrollView, Image } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather } from '@expo/vector-icons';
 
-const iconKendala = require("../assets/Icons/Kendala.png")
-const iconPanduan = require("../assets/Icons/Panduan.png")
+const iconKendala = require("../../assets/Icons/Kendala.png")
+const iconPanduan = require("../../assets/Icons/Panduan.png")
 
-export default function Home() {
+export default function Home( {navigation} ) {
   return (
     <ScrollView>
       <View style={{marginTop:30, height:1500}}>
@@ -43,9 +43,9 @@ export default function Home() {
               <View style={{marginTop:21, flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}>
                 <Text style={{fontSize:16, fontWeight:800, color:"#E6B25A"}}>0<Text style={{fontSize:10}}>EMET</Text></Text>
                 <Text style={{fontSize:16, fontWeight:800, color:"#7C7CFC"}}>0<Text style={{fontSize:10}}>ESGN</Text></Text>
-                <View style={{width:114, height:42, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
+                <TouchableOpacity onPress={() => navigation.navigate('Topup')} style={{width:114, height:42, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
                   <Text style={{fontSize:12, fontWeight:800, color:"#fff"}}>+ TOP UP</Text>
-                </View>
+                </TouchableOpacity>
               </View>
             </LinearGradient>
           </View>
