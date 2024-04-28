@@ -10,6 +10,7 @@ import ForgetPassword from '../pages/Auth/ForgetPassword';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Topup from '../pages/Home/Topup/Topup';
 import Profile from '../pages/Home/Profile/Profile';
+import KontakBaru from '../pages/Home/Sub Kontak/KontakBaru';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ export default function Router() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Topup" component={Topup} />
         <Stack.Screen name="Navigate" component={Navigation} />
+        <Stack.Screen name="KontakBaru" component={KontakBaru} />
         <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   )

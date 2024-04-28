@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Home, Dokumen, Kontak, Notification } from '../pages/Home';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -53,7 +53,7 @@ function TopTabsDokumen() {
     )
 }
 
-function TopTabsKontak() {
+function TopTabsKontak({navigation}) {
     return (
     <View style={{flex:1, marginTop:30}}>
         {/* Header Dokumen */}
@@ -62,7 +62,9 @@ function TopTabsKontak() {
             <Text style={{fontSize:16, fontWeight:'bold'}}>Kontak</Text>
             <View style={{flexDirection:"row", marginLeft:"auto"}}>
               <Feather name="search" size={24} color="black" style={{marginHorizontal:20}}/>
-              <AntDesign name="plus" size={24} color="black" />
+              <TouchableOpacity onPress={() => navigation.navigate('KontakBaru')}>
+                <AntDesign name="plus" size={24} color="black" />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
