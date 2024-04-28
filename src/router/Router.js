@@ -8,6 +8,7 @@ import Navigation from '../components/Navigation';
 import Otentikasi from '../pages/Auth/Otentikasi';
 import ForgetPassword from '../pages/Auth/ForgetPassword';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Topup from '../pages/Home/Topup/Topup';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function Router() {
         <Stack.Screen name='Otentikasi' component={Otentikasi} />
         <Stack.Screen name='ForgetPassword' component={ForgetPassword} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Topup" component={Topup} />
         <Stack.Screen name="Navigate" component={Navigation} />
     </Stack.Navigator>
   )
