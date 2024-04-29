@@ -53,12 +53,12 @@ export default function Profile({navigation}) {
                     </View>
                 </View>
             </View>
-            <View style={styles.barMenu}>
+            <TouchableOpacity onPress={()=> navigation.navigate('InfoPribadi')} style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Informasi Pribadi</Text>
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
-            </View>
+            </TouchableOpacity>
             <View style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Ubah Password</Text>
@@ -162,6 +162,6 @@ const styles = StyleSheet.create({
         height:50,
         borderBottomWidth:1,
         justifyContent:'center',
-        borderBottomColor: '#929292'
+        borderBottomColor: 'rgba(0, 0, 0, 0.1)'
     }
 })
