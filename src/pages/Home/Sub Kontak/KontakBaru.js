@@ -1,9 +1,16 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
-import React from 'react'
-import { Feather, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { View, Text, TouchableOpacity, TextInput, LayoutAnimation } from 'react-native'
+import React, { useState } from 'react'
+import { Feather, AntDesign, EvilIcons, MaterialIcons } from '@expo/vector-icons';
 import Button from '../../../components/Button';
 
 export default function KontakBaru({navigation}) {
+    const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleCollapse = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <View style={{flex:1, marginTop:30}}>
         <View style={{paddingHorizontal:16, alignItems:'center', justifyContent:"space-between", flexDirection:"row", height:50, backgroundColor:"#fff"}}>
@@ -28,12 +35,40 @@ export default function KontakBaru({navigation}) {
                     <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Email<Text style={{color:"red"}}>*</Text></Text>
                     <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='contoh@gmail.com'></TextInput>
                 </View>
-                <View style={{marginBottom:12}}>
+                <View>
                     <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Nomor Handphone<Text style={{color:"red"}}>*</Text></Text>
                     <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='+62' keyboardType='numeric'></TextInput>
                 </View>
             </View>
           </View>
+            <View>
+                <TouchableOpacity onPress={toggleCollapse} style={{height:40, width:360, justifyContent:"center"}}>
+                    <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                        <Text style={{width:330, borderBottomColor:"#929292", borderBottomWidth:1, fontWeight:700}}>Informasi Tambahan <Text style={{color:"rgba(0,0, 0, 0.5)"}}>(Opsional)</Text></Text>
+                        <MaterialIcons name={isCollapsed ? "keyboard-arrow-down" : "keyboard-arrow-up"} size={24} color="black" />
+                    </View>
+                </TouchableOpacity>
+                {!isCollapsed && (
+                    <View style={{marginTop:15}}>
+                        <View style={{marginBottom:12}}>
+                            <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Nomor Identitas (NIK)</Text>
+                            <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='Masukan (NIK)'></TextInput>
+                        </View>
+                        <View style={{marginBottom:12}}>
+                            <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Perusahaan</Text>
+                            <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='Masukan Perusahaan'></TextInput>
+                        </View>
+                        <View style={{marginBottom:12}}>
+                            <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Divisi</Text>
+                            <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='Masukan Divisi'></TextInput>
+                        </View>
+                        <View style={{marginBottom:12}}>
+                            <Text style={{marginBottom:5, fontSize:12, fontWeight:600, opacity:0.5}}>Jabatan</Text>
+                            <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5}} placeholder='Masukan Jabatan'></TextInput>
+                        </View>
+                    </View>
+                )}
+            </View>
         </View>
         <View style={{position:"absolute", bottom:0, backgroundColor:"#fff", width:392, height:80, alignItems:"center", justifyContent:"center"}}>
             <Button 

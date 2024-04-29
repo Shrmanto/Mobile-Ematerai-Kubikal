@@ -1,14 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
+import React, { useState } from 'react'
 import { Home, Dokumen, Kontak, Notification } from '../pages/Home';
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Entypo } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo, Feather, AntDesign, Ionicons } from '@expo/vector-icons';
 import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Home/Nav Dokumen"
-import { Feather } from '@expo/vector-icons';
 
 
 const Tab = createBottomTabNavigator()
@@ -28,14 +24,31 @@ const screenOptions = {
 const TopTabs = createMaterialTopTabNavigator();
 
 function TopTabsDokumen() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
+
+  const toggleSearch = () => {
+    setIsSearching(!isSearching);
+    setIsCollapsed(true);
+  };
+
     return (
     <View style={{flex:1, marginTop:30}}>
         {/* Header Dokumen */}
         <View style={{backgroundColor:'#fff', height:50}}>
           <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
-            <Text></Text>
-            <Text style={{fontSize:16, fontWeight:'bold'}}>Dokumen</Text>
-            <Feather name="search" size={24} color="black" />
+            {!isSearching ? (
+              <>
+                <Text></Text>
+                <Text style={{fontSize:16, fontWeight:'bold'}}>Dokumen</Text>
+                <Feather name="search" size={24} color="black" onPress={toggleSearch}/>
+              </>
+            ):(
+              <View style={{ flexDirection: "row", marginLeft: "auto", alignItems:"center"}}>
+                <TextInput style={{ width:306, height:30, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5 }} placeholder='Cari Dokumen ...' />
+                <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={toggleSearch} />
+              </View>
+            )}
           </View>
         </View>
         <TopTabs.Navigator
@@ -54,18 +67,35 @@ function TopTabsDokumen() {
 }
 
 function TopTabsKontak({navigation}) {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
+
+  const toggleSearch = () => {
+    setIsSearching(!isSearching);
+    setIsCollapsed(true);
+  };
+
     return (
     <View style={{flex:1, marginTop:30}}>
         {/* Header Dokumen */}
         <View style={{backgroundColor:'#fff', height:50}}>
           <View style={{alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
-            <Text style={{fontSize:16, fontWeight:'bold'}}>Kontak</Text>
-            <View style={{flexDirection:"row", marginLeft:"auto"}}>
-              <Feather name="search" size={24} color="black" style={{marginHorizontal:20}}/>
-              <TouchableOpacity onPress={() => navigation.navigate('KontakBaru')}>
-                <AntDesign name="plus" size={24} color="black" />
-              </TouchableOpacity>
-            </View>
+            {!isSearching ? (
+              <>
+                <Text style={{fontSize:16, fontWeight:'bold'}}>Kontak</Text>
+                <View style={{ flexDirection: "row", marginLeft: "auto" }}>
+                  <Feather name="search" size={24} color="black" style={{ marginHorizontal: 20 }} onPress={toggleSearch} />
+                  <TouchableOpacity onPress={() => navigation.navigate('KontakBaru')}>
+                    <AntDesign name="plus" size={24} color="black" />
+                  </TouchableOpacity>
+                </View>
+              </>
+            ) : (
+              <View style={{ flexDirection: "row", marginLeft: "auto", alignItems:"center"}}>
+                <TextInput style={{ width:306, height:30, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5 }} placeholder='Cari Kontak ...' />
+                <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={toggleSearch} />
+              </View>
+          )}
           </View>
         </View>
         <Tab.Navigator screenOptions={screenOptions}>
@@ -76,13 +106,30 @@ function TopTabsKontak({navigation}) {
 }
 
 function TopTabsNotifikasi() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
+
+  const toggleSearch = () => {
+    setIsSearching(!isSearching);
+    setIsCollapsed(true);
+  };
+
     return (
     <View style={{flex:1, marginTop:30}}>
         {/* Header Dokumen */}
         <View style={{backgroundColor:'#fff', height:50}}>
-          <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', height:50, paddingHorizontal:16}}>
-            <Text style={{fontSize:16, fontWeight:'bold'}}>Notifikasi</Text>
-            <Feather name="search" size={24} color="black" />
+          <View style={{justifyContent:"center", height:50, paddingHorizontal:16}}>
+            {!isSearching ? (
+              <View style={{justifyContent:'space-between', flexDirection:'row', alignItems:'center'}}>
+                <Text style={{fontSize:16, fontWeight:'bold'}}>Notifikasi</Text>
+                <Feather name="search" size={24} color="black" onPress={toggleSearch}/>
+              </View>
+            ):(
+              <View style={{ flexDirection: "row", marginLeft: "auto", alignItems:"center"}}>
+                <TextInput style={{ width:306, height:30, paddingHorizontal:20, backgroundColor:"#FFFFFF", borderColor:"#D4D5D9", borderWidth:1, borderRadius:5 }} placeholder='Cari Notifikasi ...' />
+                <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={toggleSearch} />
+              </View>
+            )}
           </View>
         </View>
         <Tab.Navigator screenOptions={screenOptions}>
