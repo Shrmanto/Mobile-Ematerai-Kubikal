@@ -70,7 +70,7 @@ export default function KontakBaru({navigation}) {
                 )}
             </View>
         </View>
-        <View style={{position:"absolute", bottom:0, backgroundColor:"#fff", width:392, height:80, alignItems:"center", justifyContent:"center"}}>
+        <View style={{position:"absolute", bottom:0, backgroundColor:"#fff", width:'100%', maxWidth:392, height:80, alignItems:"center", justifyContent:"center"}}>
             <Button 
                 title='Simpan Kontak'
                 style={{borderRadius:5}}
