@@ -31,9 +31,9 @@ export default function Home( {navigation} ) {
                       </View>
                     </View>
                     <View style={{width:3, height:40, backgroundColor:"#000000"}}></View>
-                    <View style={{width:138, height:33, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Sertifikat')} style={{width:138, height:33, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
                       <Text style={{fontSize:12, fontWeight:500, color:"#fff"}}>KYC Sekarang</Text>
-                    </View>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </View>

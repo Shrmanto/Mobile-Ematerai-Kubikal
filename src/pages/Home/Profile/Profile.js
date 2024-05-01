@@ -65,7 +65,7 @@ export default function Profile({navigation}) {
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
             </View>
-            <View style={styles.barMenu}>
+            <TouchableOpacity onPress={() => navigation.navigate('Sertifikat')} style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Sertifikat Digital</Text>
                     <View style={{flexDirection:'row'}}>
@@ -75,7 +75,7 @@ export default function Profile({navigation}) {
                         <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
             <View style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Hapus Akun</Text>
@@ -85,7 +85,7 @@ export default function Profile({navigation}) {
         </View>
         {/* Informasi Umum */}
         <View style={{width:FullWindowOverlay, height:'auto', paddingVertical:16, backgroundColor:"#fff", marginTop:12}}>
-            <Text style={{fontSize:16, fontWeight:'700', marginLeft:16, color:'#4E4B66'}}>Informasi Pribadi</Text>
+            <Text style={{fontSize:16, fontWeight:'700', marginLeft:16, color:'#4E4B66'}}>Informasi Umum</Text>
             <View style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Pusat Bantuan</Text>

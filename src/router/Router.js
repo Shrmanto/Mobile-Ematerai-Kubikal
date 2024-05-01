@@ -12,6 +12,7 @@ import Topup from '../pages/Home/Topup/Topup';
 import Profile from '../pages/Home/Profile/Profile';
 import KontakBaru from '../pages/Home/Sub Kontak/KontakBaru';
 import InfoPribadi from '../pages/Home/Profile/Submenu/InfoPribadi';
+import Sertifikat from '../pages/Home/Sertifikat/Sertifikat';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ export default function Router() {
         <Stack.Screen name="KontakBaru" component={KontakBaru} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="InfoPribadi" component={InfoPribadi} />
+        <Stack.Screen name="Sertifikat" component={Sertifikat} />
     </Stack.Navigator>
   )
 }
