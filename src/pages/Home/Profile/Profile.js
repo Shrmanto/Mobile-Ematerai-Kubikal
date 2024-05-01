@@ -59,12 +59,12 @@ export default function Profile({navigation}) {
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
             </TouchableOpacity>
-            <View style={styles.barMenu}>
+            <TouchableOpacity onPress={() => navigation.navigate('ChangePwd')} style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Ubah Password</Text>
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Sertifikat')} style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Sertifikat Digital</Text>
