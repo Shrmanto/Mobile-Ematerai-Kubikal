@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
-import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather, FontAwesome } from '@expo/vector-icons';
 
 const iconKendala = require("../../assets/Icons/Kendala.png")
 const iconPanduan = require("../../assets/Icons/Panduan.png")
@@ -109,7 +109,7 @@ export default function Home( {navigation} ) {
             <View style={{width:"auto", height:50, justifyContent:"center", borderBottomColor:"rgba(0, 0, 0, 0.2)", borderBottomWidth:1}}>
               <View style={{flexDirection:"row", alignItems:"center"}}>
                 <View style={{marginRight:10}}>
-                  <AntDesign name="customerservice" size={24} color="rgba(0, 0, 0, 0.6)" />
+                  <FontAwesome name="whatsapp" size={24} color="rgba(0, 0, 0, 0.6)" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800}}>Hubungi Customer Service</Text>
                 <View style={{marginLeft:"auto"}}>

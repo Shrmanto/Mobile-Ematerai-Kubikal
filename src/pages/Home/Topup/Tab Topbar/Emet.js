@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Emet() {
+export default function Emet({onPressBuy}) {
   return (
     <View style={styles.container}>
       <View style={styles.cardEmet}>
@@ -18,7 +18,7 @@ export default function Emet() {
         </View>
         <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:14,}}>
           <Text style={{marginTop:14, fontSize:18, color:'#7C7CFC'}}>Rp 60.000</Text>
-          <TouchableOpacity style={styles.btnBeli}>
+          <TouchableOpacity onPress={onPressBuy} style={styles.btnBeli}>
             <Text style={{color:'#7C7CFC'}}>Beli</Text>
           </TouchableOpacity>
         </View>
