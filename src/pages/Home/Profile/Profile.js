@@ -112,7 +112,7 @@ export default function Profile({navigation}) {
                     <View style={styles.modalOverlay}>
                         <Animated.View style={[styles.modalContent, { opacity: fadeAnim }]}>
                             <View>
-                                <Text style={{paddingLeft:20, marginTop:20, fontSize:16}}>Hapus Akun</Text>
+                                <Text style={{paddingLeft:20, fontSize:16}}>Hapus Akun</Text>
                                 <Text style={{paddingHorizontal:20, marginTop:10, opacity:0.5}}>Jika akun di hapus, Anda tidak akan bisa kembali masuk dan seluruh data akan hilang. Apakah Anda yakin ingin melanjutkan?</Text>
                                 <View style={{flexDirection:'row', justifyContent:'flex-end', paddingRight:20, marginTop:10}}>
                                     <TouchableOpacity onPress={closeModal} style={{width:80, height:40, justifyContent:'center', alignItems:'center', marginRight:5}}>
@@ -220,7 +220,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         width:'100%',
         maxWidth:280,
-        height:160,
-        borderRadius:15
+        height:'auto',
+        borderRadius:15,
+        paddingVertical:16
     },
 })
