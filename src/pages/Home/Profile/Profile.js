@@ -1,12 +1,36 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React from 'react'
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Animated, Modal, TouchableWithoutFeedback, Button } from 'react-native'
+import { useState, useEffect, useRef } from 'react'
+import { MaterialCommunityIcons, MaterialIcons, Feather } from '@expo/vector-icons';
 import { FullWindowOverlay } from 'react-native-screens';
 
 const profileImg = require('../../../assets/Images/profileme.png')
 const iconShield = require('../../../assets/Icons/shield.png')
 
+
 export default function Profile({navigation}) {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const fadeAnim = useRef(new Animated.Value(0)).current;
+
+    const openModal = () => {
+        setIsModalVisible(true);
+        Animated.timing(
+            fadeAnim,
+            {
+              toValue: 1,
+              duration: 300,
+              useNativeDriver: true,
+            }
+        ).start();
+    }
+
+    const closeModal = () => {
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+        }).start(() => setIsModalVisible(false));
+    }
+
   return (
     <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -76,12 +100,34 @@ export default function Profile({navigation}) {
                     </View>
                 </View>
             </TouchableOpacity>
-            <View style={styles.barMenu}>
+            <TouchableOpacity onPress={openModal} style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Hapus Akun</Text>
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
-            </View>
+            </TouchableOpacity>
+
+            <Modal transparent={true} visible={isModalVisible}>
+                <TouchableWithoutFeedback onPress={closeModal}>
+                    <View style={styles.modalOverlay}>
+                        <Animated.View style={[styles.modalContent, { opacity: fadeAnim }]}>
+                            <View>
+                                <Text style={{paddingLeft:20, marginTop:20, fontSize:16}}>Hapus Akun</Text>
+                                <Text style={{paddingHorizontal:20, marginTop:10, opacity:0.5}}>Jika akun di hapus, Anda tidak akan bisa kembali masuk dan seluruh data akan hilang. Apakah Anda yakin ingin melanjutkan?</Text>
+                                <View style={{flexDirection:'row', justifyContent:'flex-end', paddingRight:20, marginTop:10}}>
+                                    <TouchableOpacity onPress={closeModal} style={{width:80, height:40, justifyContent:'center', alignItems:'center', marginRight:5}}>
+                                        <Text>Batal</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => navigation.navigate()} style={{justifyContent:'center', alignItems:'center', backgroundColor:'#7C7CFC', width:80, height:40, borderRadius:10}}>
+                                        <Text style={{color:'#fff'}}>Hapus</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </Animated.View>
+                    </View>
+                </TouchableWithoutFeedback>
+            </Modal>
+
         </View>
         {/* Informasi Umum */}
         <View style={{width:FullWindowOverlay, height:'auto', paddingVertical:16, backgroundColor:"#fff", marginTop:12}}>
@@ -163,5 +209,18 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         justifyContent:'center',
         borderBottomColor: 'rgba(0, 0, 0, 0.1)'
-    }
+    },
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        alignItems: "center",
+        justifyContent:'center'
+    },
+    modalContent: {
+        backgroundColor: "#fff",
+        width:'100%',
+        maxWidth:280,
+        height:160,
+        borderRadius:15
+    },
 })
