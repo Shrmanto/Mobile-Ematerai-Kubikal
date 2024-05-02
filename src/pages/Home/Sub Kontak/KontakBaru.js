@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput, LayoutAnimation, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { Feather, AntDesign, EvilIcons, MaterialIcons } from '@expo/vector-icons';
-import Button from '../../../components/Button';
+import ButtonFirst from '../../../components/ButtonFirst';
 
 export default function KontakBaru({navigation}) {
     const [isCollapsed, setIsCollapsed] = useState(true);
@@ -73,7 +73,7 @@ export default function KontakBaru({navigation}) {
             </View>
         </ScrollView>
         <View style={{position:"absolute", bottom:0, backgroundColor:"#fff", width:'100%', maxWidth:392, height:80, alignItems:"center", justifyContent:"center"}}>
-            <Button 
+            <ButtonFirst 
                 title='Simpan Kontak'
                 style={{borderRadius:5}}
             />

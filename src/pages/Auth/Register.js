@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import Checkbox from 'expo-checkbox';
 import { AntDesign } from '@expo/vector-icons';
-import Button from '../../components/Button';
+import ButtonFirst from '../../components/ButtonFirst';
+import TextInputOne from '../../components/TextInputOne';
 
 export default function Register( {navigation} ) {
     const [isCheckedMomofin, setCheckedMomofin] = useState(false);
@@ -21,19 +22,19 @@ export default function Register( {navigation} ) {
           <View style={{marginVertical:25, alignItems:'center'}}>
             <View style={{marginBottom:10}}>
                 <Text style={{marginBottom:5, fontSize:12}}>Email</Text>
-                <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                <TextInputOne />
             </View>
             <View style={{marginBottom:10}}>
                 <Text style={{marginBottom:5, fontSize:12}}>Nama Lengkap</Text>
-                <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                <TextInputOne />
             </View>
             <View style={{marginBottom:10}}>
                 <Text style={{marginBottom:5, fontSize:12}}>Kata Sandi</Text>
-                <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                <TextInputOne />
             </View>
             <View>
                 <Text style={{marginBottom:5, fontSize:12}}>Konfirmasi Kata Sandi</Text>
-                <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                <TextInputOne />
             </View>
             </View>
             <View style={{marginBottom:25, paddingHorizontal:16}}>
@@ -47,7 +48,7 @@ export default function Register( {navigation} ) {
                 </View>
             </View>
             <View style={{alignItems:'center', marginBottom:12}}>
-                <Button 
+                <ButtonFirst 
                 title="Daftar"
                 onPress={()=>{navigation.navigate('Otentikasi')}}
                 />

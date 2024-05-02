@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
-import Button from '../../components/Button';
+import ButtonFirst from '../../components/ButtonFirst';
 
 export default function ForgetPassword({navigation}) {
   return (
@@ -20,7 +20,7 @@ export default function ForgetPassword({navigation}) {
                 <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
             </View>
             <View style={{marginTop:10}}>
-                <Button 
+                <ButtonFirst 
                  title="Kirim"
                  onPress={()=>{}}/>
             </View>

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput} from 'react
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { OtpInput } from 'react-native-otp-entry';
-import Button from '../../components/Button';
+import ButtonFirst from '../../components/ButtonFirst';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const iconImg = require('../../assets/Icons/one-time-password.png')
@@ -41,7 +41,7 @@ export default function Otentikasi( {navigation} ) {
                     <Text style={{color:'#7C7CFC', fontWeight:700, marginLeft:4}}>Kirim Ulang</Text>
                 </TouchableOpacity>
              </View>
-            <Button 
+            <ButtonFirst 
              title='Kirim'
              onPress={()=>{navigation.navigate("Navigate")}}
             />          

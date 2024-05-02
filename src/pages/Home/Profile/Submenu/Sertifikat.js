@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather, FontAwesome5 } from '@expo/vector-icons';
-import Button from '../../../../components/Button';
+import ButtonFirst from '../../../../components/ButtonFirst';
 
 const SertifImg = require("../../../../assets/Images/sertifikat.png")
 
@@ -42,7 +42,7 @@ export default function Sertifikat({navigation}) {
                 </View>
             </View>
             <View style={{alignItems:"center"}}>
-                <Button title='KYC Sekarang' style={{borderRadius:5}}/>
+                <ButtonFirst title='KYC Sekarang' style={{borderRadius:5}}/>
             </View>
         </View>
     </View>

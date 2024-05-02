@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { AntDesign, Feather, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Esgn, Emet, Bundling } from '../Topup/Tab Topbar'
-import Button from '../../../components/Button'
+import ButtonFirst from '../../../components/ButtonFirst'
 
 const TopTabs = createMaterialTopTabNavigator();
 
@@ -96,8 +96,8 @@ export default function Topup({navigation}) {
                                 </View>
                                 <View style={{width:'auto', borderBottomWidth:1, justifyContent:'center', borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}></View>
                             </View>
-                            <Button title='Beli Sekarang' style={{borderRadius:5}}/>
-                            <Button title='Batal' onPress={closeModal} style={{borderRadius:5, marginTop:16}}/>
+                            <ButtonFirst title='Beli Sekarang' style={{borderRadius:5}}/>
+                            <ButtonFirst title='Batal' onPress={closeModal} style={{borderRadius:5, marginTop:16}}/>
                         </View>
                     </Animated.View>
                 </View>

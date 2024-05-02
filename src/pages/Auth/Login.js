@@ -1,5 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
+import TextInputOne from '../../components/TextInputOne'
+import ButtonFirst from '../../components/ButtonFirst'
 
 export default function Login( {navigation} ) {
   return (
@@ -12,20 +14,21 @@ export default function Login( {navigation} ) {
             <View style={{alignItems:"center"}}>
                 <View style={{marginVertical:15}}>
                     <Text style={{marginBottom:5, fontSize:12}}>Email</Text>
-                    <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                    <TextInputOne />
                     <Text style={{marginVertical:5, fontSize:12}}>Kata Sandi</Text>
-                    <TextInput style={{width:360, height:40, paddingHorizontal:20, backgroundColor:"rgba(218, 218, 250, 0.1)", borderColor:"#7C7CFC", borderWidth:1, borderRadius:20}}></TextInput>
+                    <TextInputOne />
                 </View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{marginLeft:"auto", marginBottom:30}}>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{marginLeft:"auto", marginBottom:20}}>
                 <Text style={{fontSize:12, fontWeight:700, color:"#7C7CFC"}}>Lupa Kata Sandi?</Text>
             </TouchableOpacity>
             <View style={{alignItems:"center"}}>
-                <TouchableOpacity onPress={() => navigation.navigate('Navigate')} style={{width:360, height:40, marginBottom:12, backgroundColor:"#7C7CFC", alignItems:"center", justifyContent:"center", borderRadius:20}}>
-                    <Text style={{fontSize:12, fontWeight:700, color:"#ffff"}}>Masuk</Text>
-                </TouchableOpacity>
+                <ButtonFirst
+                 title="Masuk"
+                 onPress={()=>{navigation.navigate('Navigate')}}
+                />
             </View>
-            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+            <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center", marginTop:10}}>
                 <Text style={{fontSize:12, color:"rgba(78, 75, 102, 0.4)", marginRight:5}}>Belum Punya Akun?</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('Daftar')}><Text style={{fontWeight:700, color:"#7C7CFC"}}>Daftar</Text></TouchableOpacity>
             </View>
