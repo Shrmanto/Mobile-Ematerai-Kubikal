@@ -2,6 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import Navigation from '../components/Navigation'
 import { StackActions } from '@react-navigation/native'
+import { primaryColor } from '../components/Color'
 
 const logoImg = require("../assets/LogoSplash.png")
 const logoPeruri = require("../assets/LogoPeruri.png")
@@ -16,7 +17,7 @@ export default function SplashScreen({navigation}) {
       }, []);
 
   return (
-    <View style={{flex:1, backgroundColor:"#7C7CFC"}}>
+    <View style={{flex:1, backgroundColor:primaryColor}}>
         <View style={{flex:1 ,alignItems:"center", justifyContent:"center", marginTop:350}}>
             <Image source={logoImg} width={184} height={53}/>
             <View style={{marginTop:320, alignItems:"center"}}>

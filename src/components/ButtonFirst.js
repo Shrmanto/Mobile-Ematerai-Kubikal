@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { primaryColor } from './Color'
 
 const ButtonFirst = (props) => {
     return (
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor: '#7C7CFC'
+        backgroundColor: primaryColor
     }
 })
 

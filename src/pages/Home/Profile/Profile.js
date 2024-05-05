@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Animated, 
 import { useState, useEffect, useRef } from 'react'
 import { MaterialCommunityIcons, MaterialIcons, Feather } from '@expo/vector-icons';
 import { FullWindowOverlay } from 'react-native-screens';
+import { primaryColor } from '../../../components/Color';
 
 const profileImg = require('../../../assets/Images/profileme.png')
 const iconShield = require('../../../assets/Icons/shield.png')
@@ -54,7 +55,7 @@ export default function Profile({navigation}) {
         </View>
         <View style={{marginTop:32, flexDirection:'row', paddingHorizontal:16, justifyContent:'space-between'}}>
             <Text style={{fontSize:14}}>Balance Anda</Text>
-            <Text style={{fontSize:12, color:"#5F47F0"}}>History Saldo</Text>
+            <Text style={{fontSize:12, color:primaryColor}}>History Saldo</Text>
         </View>
         {/* End Profile */}
         <View style={{alignItems:'center', marginTop:10}}>
@@ -118,7 +119,7 @@ export default function Profile({navigation}) {
                                     <TouchableOpacity onPress={closeModal} style={{width:80, height:40, justifyContent:'center', alignItems:'center', marginRight:5}}>
                                         <Text>Batal</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => navigation.navigate()} style={{justifyContent:'center', alignItems:'center', backgroundColor:'#7C7CFC', width:80, height:40, borderRadius:10}}>
+                                    <TouchableOpacity onPress={() => navigation.navigate()} style={{justifyContent:'center', alignItems:'center', backgroundColor:primaryColor, width:80, height:40, borderRadius:10}}>
                                         <Text style={{color:'#fff'}}>Hapus</Text>
                                     </TouchableOpacity>
                                 </View>

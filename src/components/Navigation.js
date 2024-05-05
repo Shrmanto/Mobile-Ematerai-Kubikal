@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Entypo, Feather, AntDesign, Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Home/Nav Dokumen"
+import { primaryColor, secondaryColor, textInputColor, shortButtonColor, whiteColor } from './Color';
 
 
 const Tab = createBottomTabNavigator()
@@ -265,7 +266,7 @@ function TabGroup() {
                 borderRadius: Platform.OS == "ios" ? 25 : 25,
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: "#7C7CFC"
+                backgroundColor: primaryColor
               }}
               >
                 <AntDesign name="addfile" size={24} color="#fff" />

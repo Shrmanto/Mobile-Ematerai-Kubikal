@@ -2,6 +2,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather, FontAwesome } from '@expo/vector-icons';
+import { primaryColor, secondaryColor, textInputColor, shortButtonColor, whiteColor } from '../../components/Color/index'
 
 const iconKendala = require("../../assets/Icons/Kendala.png")
 const iconPanduan = require("../../assets/Icons/Panduan.png")
@@ -10,7 +11,7 @@ export default function Home( {navigation} ) {
   return (
     <ScrollView>
       <View style={{marginTop:30, height:1500}}>
-          <LinearGradient style={{width:"auto", height:185, backgroundColor:"#7C7CFC", justifyContent:"center"}} colors={['#7C7CFC', '#4A4A96']}>
+          <View style={{width:"auto", height:193, backgroundColor: primaryColor, justifyContent:"center", borderBottomRightRadius:50, borderBottomLeftRadius:50}} colors={['#7C7CFC', '#4A4A96']}>
             <View style={{marginHorizontal:16, flexDirection:"row"}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{width:42, height:42, backgroundColor:"#ffff", borderRadius:100, marginRight:22, justifyContent:"center", alignItems:"center"}}>
                 <AntDesign name="user" size={24} color="black" />
@@ -31,43 +32,43 @@ export default function Home( {navigation} ) {
                       </View>
                     </View>
                     <View style={{width:3, height:40, backgroundColor:"#000000"}}></View>
-                    <TouchableOpacity onPress={() => navigation.navigate('Sertifikat')} style={{width:138, height:33, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Sertifikat')} style={{width:138, height:33, backgroundColor: shortButtonColor, justifyContent:"center", alignItems:"center", borderRadius:10}}>
                       <Text style={{fontSize:12, fontWeight:500, color:"#fff"}}>KYC Sekarang</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
               </View>
             </View>
-          </LinearGradient>
+          </View>
           <View style={{alignItems:"center"}}>
             <View style={{marginHorizontal:16, marginTop:-25}}>
-              <LinearGradient style={{width:360, height:115, backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:20, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
+              <View style={{width:360, height:115, backgroundColor: secondaryColor, borderRadius:15, paddingHorizontal:20, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
                 <Text style={{fontSize:12, fontWeight:800, color:"#fff"}}>Balance Anda</Text>
                 <View style={{marginTop:21, flexDirection:"row", justifyContent:"space-between", alignItems:"center"}}>
                   <Text style={{fontSize:16, fontWeight:800, color:"#E6B25A"}}>0<Text style={{fontSize:10}}>EMET</Text></Text>
-                  <Text style={{fontSize:16, fontWeight:800, color:"#7C7CFC"}}>0<Text style={{fontSize:10}}>ESGN</Text></Text>
-                  <TouchableOpacity onPress={() => navigation.navigate('Topup')} style={{width:114, height:42, backgroundColor:"#7C7CFC", justifyContent:"center", alignItems:"center", borderRadius:10}}>
+                  <Text style={{fontSize:16, fontWeight:800, color: secondaryColor}}>0<Text style={{fontSize:10}}>ESGN</Text></Text>
+                  <TouchableOpacity onPress={() => navigation.navigate('Topup')} style={{width:114, height:42, backgroundColor: shortButtonColor, justifyContent:"center", alignItems:"center", borderRadius:10}}>
                     <Text style={{fontSize:12, fontWeight:800, color:"#fff"}}>+ TOP UP</Text>
                   </TouchableOpacity>
                 </View>
-              </LinearGradient>
+              </View>
             </View>
             <View style={{marginHorizontal:16, marginTop:25}}>
               <View style={{flexDirection:"row"}}>
-                <LinearGradient style={{width:171, height:90, backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:20, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
+                <View style={{width:171, height:90, backgroundColor: secondaryColor, borderRadius:15, paddingHorizontal:20, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
                   <View style={{flexDirection:"row", alignItems:"center"}}>
                     <Feather name="send" size={24} color="#fff" />
                     <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:15, paddingLeft:5}}>0</Text>
                   </View>
                   <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:10}}>Dalam Proses</Text>
-                </LinearGradient>
-                <LinearGradient style={{width:171, height:90, backgroundColor:"#004DA3", borderRadius:15, paddingHorizontal:20, marginLeft:18, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
+                </View>
+                <View style={{width:171, height:90, backgroundColor: secondaryColor, borderRadius:15, paddingHorizontal:20, marginLeft:18, paddingVertical:15}} colors={['#001D3D', '#004DA3']}>
                   <View style={{flexDirection:"row", alignItems:"center"}}>
                     <MaterialCommunityIcons name="file-document-outline" size={24} color="#fff" />
                     <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:15, paddingLeft:5}}>0</Text>
                   </View>
                   <Text style={{fontSize:12, fontWeight:800, color:"#fff", paddingTop:10}}>Dokumen Sukses</Text>
-                </LinearGradient>
+                </View>
               </View>
             </View>
           </View>

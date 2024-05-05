@@ -4,6 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { OtpInput } from 'react-native-otp-entry';
 import ButtonFirst from '../../components/ButtonFirst';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { primaryColor } from '../../components/Color';
 
 const iconImg = require('../../assets/Icons/one-time-password.png')
 
@@ -22,7 +23,7 @@ export default function Otentikasi( {navigation} ) {
             <OtpInput
              numberOfDigits={5}
              onTextChange={(text)=>console.log(text)}
-             focusColor={'#7C7CFC'}
+             focusColor={primaryColor}
              focusStickBlinkingDuration={400}
              theme={{
                 pinCodeContainerStyle : {
@@ -38,7 +39,7 @@ export default function Otentikasi( {navigation} ) {
              <View style={{flexDirection:'row', marginTop:8, marginBottom:26}}>
                 <Text>Belum menerima kode OTP ?</Text>
                 <TouchableOpacity>
-                    <Text style={{color:'#7C7CFC', fontWeight:700, marginLeft:4}}>Kirim Ulang</Text>
+                    <Text style={{color:primaryColor, fontWeight:700, marginLeft:4}}>Kirim Ulang</Text>
                 </TouchableOpacity>
              </View>
             <ButtonFirst 

@@ -2,6 +2,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import TextInputOne from '../../components/TextInputOne'
 import ButtonFirst from '../../components/ButtonFirst'
+import { primaryColor } from '../../components/Color'
 
 export default function Login( {navigation} ) {
   return (
@@ -20,7 +21,7 @@ export default function Login( {navigation} ) {
                 </View>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{marginLeft:"auto", marginBottom:20}}>
-                <Text style={{fontSize:12, fontWeight:700, color:"#7C7CFC"}}>Lupa Kata Sandi?</Text>
+                <Text style={{fontSize:12, fontWeight:700, color: primaryColor}}>Lupa Kata Sandi?</Text>
             </TouchableOpacity>
             <View style={{alignItems:"center"}}>
                 <ButtonFirst
@@ -30,7 +31,7 @@ export default function Login( {navigation} ) {
             </View>
             <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center", marginTop:10}}>
                 <Text style={{fontSize:12, color:"rgba(78, 75, 102, 0.4)", marginRight:5}}>Belum Punya Akun?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Daftar')}><Text style={{fontWeight:700, color:"#7C7CFC"}}>Daftar</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Daftar')}><Text style={{fontWeight:700, color:primaryColor}}>Daftar</Text></TouchableOpacity>
             </View>
         </View>
     </View>

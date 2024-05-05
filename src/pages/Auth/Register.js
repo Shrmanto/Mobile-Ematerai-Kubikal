@@ -4,6 +4,7 @@ import Checkbox from 'expo-checkbox';
 import { AntDesign } from '@expo/vector-icons';
 import ButtonFirst from '../../components/ButtonFirst';
 import TextInputOne from '../../components/TextInputOne';
+import { primaryColor, shortButtonColor } from '../../components/Color';
 
 export default function Register( {navigation} ) {
     const [isCheckedMomofin, setCheckedMomofin] = useState(false);
@@ -39,11 +40,11 @@ export default function Register( {navigation} ) {
             </View>
             <View style={{marginBottom:25, paddingHorizontal:16}}>
                 <View style={{flexDirection:"row", alignItems:"center", marginBottom:16}}>
-                    <Checkbox style={{marginRight:10}} value={isCheckedMomofin} onValueChange={setCheckedMomofin} color={isCheckedMomofin ? '#4630EB' : undefined}></Checkbox>
+                    <Checkbox style={{marginRight:10}} value={isCheckedMomofin} onValueChange={setCheckedMomofin} color={isCheckedMomofin ? shortButtonColor : undefined}></Checkbox>
                     <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari MOMOFIN</Text>
                 </View>
                 <View style={{flexDirection:"row", alignItems:"center"}}>
-                    <Checkbox style={{marginRight:10}} value={isCheckedPeruri} onValueChange={setCheckedPeruri} color={isCheckedPeruri ? '#4630EB' : undefined}></Checkbox>
+                    <Checkbox style={{marginRight:10}} value={isCheckedPeruri} onValueChange={setCheckedPeruri} color={isCheckedPeruri ? shortButtonColor : undefined}></Checkbox>
                     <Text style={{fontSize:12}}>Saya setuju dengan Syarat dan ketentuan dari PERURI</Text>
                 </View>
             </View>
@@ -54,7 +55,7 @@ export default function Register( {navigation} ) {
                 />
             </View>
             <View style={{alignItems:"center"}}>
-                <Text style={{fontSize:12, color:"rgba(78, 75, 102, 0.4)"}}>Sudah Punya Akun?<Text style={{fontWeight:700, color:"#7C7CFC"}}>Masuk</Text></Text>
+                <Text style={{fontSize:12, color:"rgba(78, 75, 102, 0.4)"}}>Sudah Punya Akun?<Text style={{fontWeight:700, color: primaryColor}}>Masuk</Text></Text>
             </View>
             <View style={{marginTop:20, marginLeft:"auto"}}>
                 <View style={{width:105, height:30, backgroundColor:"#12B76A", justifyContent:"center", alignItems:"center", borderRadius:20, flexDirection:"row"}}>

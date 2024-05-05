@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign, Entypo } from '@expo/vector-icons';
+import { primaryColor } from '../../../../components/Color';
 
 export default function ChangePwd({navigation}) {
 
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     btnPw : {
         width:360,
         height: 50,
-        backgroundColor: '#7C7CFC',
+        backgroundColor: primaryColor,
         justifyContent:'center',
         alignItems:'center',
         borderRadius:5,
