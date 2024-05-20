@@ -133,12 +133,14 @@ export default function Profile({navigation}) {
         {/* Informasi Umum */}
         <View style={{width:FullWindowOverlay, height:'auto', paddingVertical:16, backgroundColor:"#fff", marginTop:12}}>
             <Text style={{fontSize:16, fontWeight:'700', marginLeft:16, color:'#4E4B66'}}>Informasi Umum</Text>
+            <TouchableOpacity onPress={()=> navigation.navigate('Bantuan')}>
             <View style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Pusat Bantuan</Text>
                     <MaterialIcons name="arrow-forward-ios" size={20} color="#929292" />
                 </View>
             </View>
+            </TouchableOpacity>
             <View style={styles.barMenu}>
                 <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                     <Text style={{fontSize:14, color:'#4E4B66'}}>Syarat dan Ketentuan Layanan</Text>
