@@ -11,16 +11,19 @@
       "@config-plugins/react-native-pdf",
       [
         "expo-image-picker",
-          {
-            "photosPermission": "The app accesses your photos to let you share them with your friends.",
-            "cameraPermission": "Allow $(PRODUCT_NAME) to open the camera"
-          }
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends.",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to open the camera"
+        }
       ],
       [
         "expo-document-picker",
         {
           "android": {
-            "permissions": ["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"]
+            "permissions": [
+              "READ_EXTERNAL_STORAGE",
+              "WRITE_EXTERNAL_STORAGE"
+            ]
           }
         }
       ]
@@ -30,7 +33,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -40,12 +45,23 @@
         "backgroundColor": "#ffffff"
       },
       "permissions": [
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
-      ]
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.rendyfirmansah.mobileMaterai"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1cda314d-2209-4958-a729-d8758d5c9be0"
+      }
     }
   }
 }
