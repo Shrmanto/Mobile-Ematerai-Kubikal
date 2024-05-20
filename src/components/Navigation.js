@@ -6,6 +6,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { Entypo, Feather, AntDesign, Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Home/Nav Dokumen"
 import { primaryColor, secondaryColor, textInputColor, shortButtonColor, whiteColor } from './Color';
+import * as DocumentPicker from 'expo-document-picker';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Tab = createBottomTabNavigator()
@@ -143,6 +145,18 @@ function TopTabsNotifikasi() {
 function TabGroup() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [slideAnim] = useState(new Animated.Value(0));
+  const navigation = useNavigation();
+
+  const [file, setFile] = useState(null);
+
+  const pickDocument = async () => {
+    let result = await DocumentPicker.getDocumentAsync({});
+    if (result.type === 'success') {
+      setFile(result);
+    }
+    console.log(result);
+
+  };
 
   const openModal = () => {
       setIsModalVisible(true);
@@ -190,12 +204,12 @@ function TabGroup() {
                           <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={closeModal} />
                         </View>
                           <View style={{width:'auto', height:15, borderBottomWidth:1, justifyContent:'center', borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}></View>
-                          <View style={styles.barMenu}>
+                          <TouchableOpacity onPress={pickDocument} style={styles.barMenu}>
                               <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <MaterialCommunityIcons name="folder-open-outline" size={24} color="lightblue" />
                                   <Text style={{fontSize:16, marginLeft:10}}>Unggah dari File</Text>
                               </View>
-                          </View>
+                          </TouchableOpacity>
                           <View style={styles.barMenu}>
                               <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <MaterialCommunityIcons name="line-scan" size={24} color="lightblue" />

@@ -12,35 +12,6 @@ const patternTop = require("../../assets/pattern-top.png")
 const patternBottom = require("../../assets/pattern-bottom.png")
 
 export default function Home( {navigation} ) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [slideAnim] = useState(new Animated.Value(0));
-
-  const openModal = () => {
-      setIsModalVisible(true);
-  }
-
-  const closeModal = () => {
-      Animated.timing(slideAnim, {
-          toValue: 0,
-          duration: 100,
-          useNativeDriver: true,
-      }).start(() => setIsModalVisible(false));
-  }
-
-  useEffect(() => {
-      if (isModalVisible) {
-          Animated.timing(slideAnim, {
-              toValue: 1,
-              duration: 100,
-              useNativeDriver: true,
-          }).start();
-      } else {
-          slideAnim.setValue(0);
-      }
-  }, [isModalVisible]);
-
-
-  
   return (
     <ScrollView>
       <View style={{marginTop:30, height:1500}}>
@@ -49,6 +20,7 @@ export default function Home( {navigation} ) {
             <Image source={patternBottom} style={{position:'absolute', right:0, resizeMode:'contain'}} />
             <View style={{marginHorizontal:16, flexDirection:"row"}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{width:42, height:42, backgroundColor:"#ffff", borderRadius:100, marginRight:22, justifyContent:"center", alignItems:"center"}}>
+                {image && <Image source={{ uri : image }} style={{ width: 105, height: 105, borderRadius: 50 }} />}
                 <AntDesign name="user" size={24} color="black" />
               </TouchableOpacity>
               <View>
