@@ -9,7 +9,7 @@ const iconPanduan = require("../../assets/Icons/Panduan.png")
 const patternTop = require("../../assets/pattern-top.png")
 const patternBottom = require("../../assets/pattern-bottom.png")
 
-export default function Home( {navigation} ) {
+export default function Home( {navigation, image} ) {
   return (
     <ScrollView>
       <View style={{marginTop:30, height:1500}}>
@@ -18,6 +18,7 @@ export default function Home( {navigation} ) {
             <Image source={patternBottom} style={{position:'absolute', right:0, resizeMode:'contain'}} />
             <View style={{marginHorizontal:16, flexDirection:"row"}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')} style={{width:42, height:42, backgroundColor:"#ffff", borderRadius:100, marginRight:22, justifyContent:"center", alignItems:"center"}}>
+                {image && <Image source={{ uri : image }} style={{ width: 105, height: 105, borderRadius: 50 }} />}
                 <AntDesign name="user" size={24} color="black" />
               </TouchableOpacity>
               <View>

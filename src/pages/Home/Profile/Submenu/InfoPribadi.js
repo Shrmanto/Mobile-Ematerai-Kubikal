@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Modal, Animated, TouchableWithoutFeedback, Touchable} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Modal, Animated, TouchableWithoutFeedback, Touchable, Platform} from 'react-native';
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
 
 const profile = require('../../../../assets/Images/profileme.png')
 
@@ -8,6 +9,47 @@ export default function InfoPribadi({ navigation }) {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [slideAnim] = useState(new Animated.Value(0));
+
+    const [image, setImage] = useState(null);
+
+    const pickImage = async () => {
+
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+    
+        if (!result.canceled) {
+          setImage(result.assets[0].uri);
+        }
+    };
+
+    const cameraImage = async () => {
+      
+        const { status } = await ImagePicker.requestCameraPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+          return;
+        }
+
+        let result = await ImagePicker.launchCameraAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+          });
+      
+        console.log(result);
+    
+        if (!result.canceled) {
+        setImage(result.assets[0].uri);
+        }
+
+    };
 
     const openModal = () => {
         setIsModalVisible(true);
@@ -45,7 +87,7 @@ export default function InfoPribadi({ navigation }) {
                 </View>
                 <View style={{ alignItems: 'center', marginTop: 32 }}>
                     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                        <Image source={profile} style={{ width: 105, height: 105, borderRadius: 50 }} />
+                        {image && <Image source={{ uri : image }} style={{ width: 105, height: 105, borderRadius: 50 }} />}
                         <TouchableOpacity onPress={openModal} style={styles.bgProfile}>
                             <Feather name="camera" size={20} color="black" />
                         </TouchableOpacity>
@@ -84,18 +126,18 @@ export default function InfoPribadi({ navigation }) {
                                 <View>
                                     <Text style={{paddingLeft:20, marginTop:20, fontSize:16}}>Ubah Foto Profile</Text>
                                     <View style={{width:'auto', marginHorizontal:20, height:15, borderBottomWidth:1, justifyContent:'center', borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}></View>
-                                    <View style={styles.barMenu}>
+                                    <TouchableOpacity onPress={pickImage} style={styles.barMenu}>
                                         <View style={{flexDirection:'row', alignItems:'center'}}>
                                             <MaterialIcons name="insert-photo" size={24} color="lightblue" />
                                             <Text style={{fontSize:16, marginLeft:10}}>Pilih Galeri</Text>
                                         </View>
-                                    </View>
-                                    <View style={styles.barMenu}>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={cameraImage} style={styles.barMenu}>
                                         <View style={{flexDirection:'row', alignItems:'center'}}>
                                             <Feather name="camera" size={24} color="lightblue" />
                                             <Text style={{fontSize:16, marginLeft:10}}>Ambil dengan Kamera</Text>
                                         </View>
-                                    </View>
+                                    </TouchableOpacity>
                                     <View style={styles.barMenuBottom}>
                                         <View style={{flexDirection:'row', alignItems:'center'}}>
                                             <MaterialIcons name="cancel" size={24} color="red" />
