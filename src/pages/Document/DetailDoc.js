@@ -59,7 +59,6 @@ export default function DetailDoc({ navigation }) {
       {SelectFile && (
         <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.pdfContainer}
         >
           <Pdf
             source={{ uri: SelectFile.uri }}
