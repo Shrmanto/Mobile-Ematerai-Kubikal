@@ -8,6 +8,7 @@ import { Semua, Selesai, Berjalan, Dibatalkan, Draft } from "../pages/Home/Nav D
 import { primaryColor, secondaryColor, textInputColor, shortButtonColor, whiteColor } from './Color';
 import * as DocumentPicker from 'expo-document-picker';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const Tab = createBottomTabNavigator()
@@ -147,15 +148,18 @@ function TabGroup() {
   const [slideAnim] = useState(new Animated.Value(0));
   const navigation = useNavigation();
 
-  const [file, setFile] = useState(null);
+  const handlePickDocument = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: "application/pdf",
+        copyToCacheDirectory: true,
+      });
 
-  const pickDocument = async () => {
-    let result = await DocumentPicker.getDocumentAsync({});
-    if (result.type === 'success') {
-      setFile(result);
+      AsyncStorage.setItem("document", JSON.stringify(result.assets[0]));
+      navigation.navigate("DetailDoc");
+    } catch (err) {
+      console.log("Pemilihan dokumen gagal", err);
     }
-    console.log(result);
-
   };
 
   const openModal = () => {
@@ -204,7 +208,7 @@ function TabGroup() {
                           <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={closeModal} />
                         </View>
                           <View style={{width:'auto', height:15, borderBottomWidth:1, justifyContent:'center', borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}></View>
-                          <TouchableOpacity onPress={pickDocument} style={styles.barMenu}>
+                          <TouchableOpacity onPress={handlePickDocument} style={styles.barMenu}>
                               <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <MaterialCommunityIcons name="folder-open-outline" size={24} color="lightblue" />
                                   <Text style={{fontSize:16, marginLeft:10}}>Unggah dari File</Text>

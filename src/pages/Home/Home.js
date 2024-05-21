@@ -5,6 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons, MaterialIcons, AntDesign, Feather, FontAwesome } from '@expo/vector-icons';
 import { primaryColor, secondaryColor, textInputColor, shortButtonColor, whiteColor } from '../../components/Color/index'
 import { FullWindowOverlay } from 'react-native-screens';
+import * as DocumentPicker from 'expo-document-picker';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const iconKendala = require("../../assets/Icons/Kendala.png")
 const iconPanduan = require("../../assets/Icons/bx_qr.png")
@@ -14,6 +16,20 @@ const patternBottom = require("../../assets/pattern-bottom.png")
 export default function Home( {navigation} ) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [slideAnim] = useState(new Animated.Value(0));
+
+  const handlePickDocument = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: "application/pdf",
+        copyToCacheDirectory: true,
+      });
+
+      AsyncStorage.setItem("document", JSON.stringify(result.assets[0]));
+      navigation.navigate("DetailDoc");
+    } catch (err) {
+      console.log("Pemilihan dokumen gagal", err);
+    }
+  };
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -115,7 +131,7 @@ export default function Home( {navigation} ) {
                 <MaterialCommunityIcons name="folder-upload" size={24} color="#FFA000" />
               </View>
               <Text style={{fontSize:14, fontWeight:800, color:"#fff"}}>Unggah & Tanda Tangan Dokumen</Text>
-              <View style={{marginLeft:120}}>
+              <View style={{marginLeft:"auto"}}>
                 <MaterialIcons name="arrow-forward-ios" size={24} color="#FFA000" />
               </View>
             </View>
@@ -140,12 +156,12 @@ export default function Home( {navigation} ) {
                           <Feather name="x" size={24} color="black" style={{marginLeft:26}} onPress={closeModal} />
                         </View>
                           <View style={{width:'auto', height:15, borderBottomWidth:1, justifyContent:'center', borderBottomColor: 'rgba(0, 0, 0, 0.1)'}}></View>
-                          <View style={styles.barMenu}>
+                          <TouchableOpacity onPress={handlePickDocument} style={styles.barMenu}>
                               <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <MaterialCommunityIcons name="folder-open-outline" size={24} color="lightblue" />
                                   <Text style={{fontSize:16, marginLeft:10}}>Unggah dari File</Text>
                               </View>
-                          </View>
+                          </TouchableOpacity>
                           <View style={styles.barMenu}>
                               <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <MaterialCommunityIcons name="line-scan" size={24} color="lightblue" />
@@ -181,7 +197,7 @@ export default function Home( {navigation} ) {
                   <MaterialCommunityIcons name="postage-stamp" size={24} color="#FFA000" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800, color:"#fff"}}>Bubuhkan e-Materai</Text>
-                <View style={{marginLeft:209}}>
+                <View style={{marginLeft:"auto"}}>
                   <MaterialIcons name="arrow-forward-ios" size={24} color="#FFA000" />
                 </View>
               </View>
@@ -193,7 +209,7 @@ export default function Home( {navigation} ) {
                   <MaterialCommunityIcons name="message-question" size={24} color="#FFA000" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800, color:"#fff"}}>Frequently Asked Question</Text>
-                <View style={{marginLeft:165}}>
+                <View style={{marginLeft:"auto"}}>
                   <MaterialIcons name="arrow-forward-ios" size={24} color="#FFA000" />
                 </View>
               </View>
@@ -205,7 +221,7 @@ export default function Home( {navigation} ) {
                   <FontAwesome name="whatsapp" size={24} color="#FFA000" />
                 </View>
                 <Text style={{fontSize:14, fontWeight:800, color:"#fff"}}>Hubungi Customer Service</Text>
-                <View style={{marginLeft:169}}>
+                <View style={{marginLeft:"auto"}}>
                   <MaterialIcons name="arrow-forward-ios" size={24} color="#FFA000" />
                 </View>
               </View>
